@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  final VoidCallback show;
+  const LoginScreen(this.show, {super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -94,55 +95,60 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ));
   }
-}
 
-Widget Forgot() {
-  return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 10.w),
-    child: Text(
-      'Forgot Your Password?',
-      style: TextStyle(
-        fontSize: 13.sp,
-        color: Colors.blue,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-  );
-}
-
-Widget Login() {
-  return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 10.h),
-    child: Container(
-      alignment: Alignment.center,
-      width: double.infinity,
-      height: 44.h,
-      decoration: BoxDecoration(
-          color: Colors.black, borderRadius: BorderRadius.circular(10.r)),
+  Widget Forgot() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.w),
       child: Text(
-        'Login',
+        'Forgot Your Password?',
         style: TextStyle(
-            fontSize: 23.sp, color: Colors.white, fontWeight: FontWeight.bold),
+          fontSize: 13.sp,
+          color: Colors.blue,
+          fontWeight: FontWeight.bold,
+        ),
       ),
-    ),
-  );
-}
+    );
+  }
 
-Widget Have() {
-  return const Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Text(
-        "Don't have account ?",
-        style: TextStyle(color: Colors.grey),
+  Widget Login() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.h),
+      child: Container(
+        alignment: Alignment.center,
+        width: double.infinity,
+        height: 44.h,
+        decoration: BoxDecoration(
+            color: Colors.black, borderRadius: BorderRadius.circular(10.r)),
+        child: Text(
+          'Login',
+          style: TextStyle(
+              fontSize: 23.sp,
+              color: Colors.white,
+              fontWeight: FontWeight.bold),
+        ),
       ),
-      SizedBox(
-        width: 5.0,
-      ),
-      Text(
-        'Sign up',
-        style: TextStyle(color: Colors.blue),
-      )
-    ],
-  );
+    );
+  }
+
+  Widget Have() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text(
+          "Don't have account ?",
+          style: TextStyle(color: Colors.grey),
+        ),
+        const SizedBox(
+          width: 5.0,
+        ),
+        GestureDetector(
+          onTap: widget.show,
+          child: Text(
+            'Sign up',
+            style: TextStyle(color: Colors.blue),
+          ),
+        )
+      ],
+    );
+  }
 }
