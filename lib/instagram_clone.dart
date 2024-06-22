@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:instagram_clone/screens/login_screen.dart';
 
 class InstagramClone extends StatelessWidget {
@@ -8,7 +9,7 @@ class InstagramClone extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: ScreenUtilInit(designSize: Size(375, 812), child: LoginScreen()),
     );
   }
 }
